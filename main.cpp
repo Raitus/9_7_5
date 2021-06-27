@@ -5,15 +5,15 @@ int main() {
   std::cout << "Input number: ";
   std::cin >> number;
 
-  if (number.length() > 4 || number.length()==4
+  if (number.length() > 4 || (number.length()==4
 	  && (number[0] < '0' || number[0] > '9' || number[1] < '0' || number[1] > '9' || number[2] < '0'
-		  || number[2] > '9' || number[3] < '0' || number[3] > '9') || number.length()==3
+		  || number[2] > '9' || number[3] < '0' || number[3] > '9')) || (number.length()==3
 	  && (number[0] < '0' || number[0] > '9' || number[1] < '0' || number[1] > '9' || number[2] < '0'
-		  || number[2] > '9')
-	  || number.length()==2 && (number[0] < '0' || number[0] > '9' || number[1] < '0' || number[1] > '9')
-	  || number.length()==1 && (number[0] < '0' || number[0] > '9')
-	  || number.length()==4
-		  && ((number[0] - '0')*1000 + (number[1] - '0')*100 + (number[2] - '0')*10 + (number[3] - '0')) > 3999) {
+		  || number[2] > '9'))
+	  || (number.length()==2 && (number[0] < '0' || number[0] > '9' || number[1] < '0' || number[1] > '9'))
+	  || (number.length()==1 && (number[0] < '0' || number[0] > '9'))
+	  || (number.length()==4
+		  && ((number[0] - '0')*1000 + (number[1] - '0')*100 + (number[2] - '0')*10 + (number[3] - '0')) > 3999)) {
 	std::cout << "Wrong number! Input between 1 and 3999.\n";
   } else {
 	int stringSize = number.length(), numberOfSymbol = 0;
@@ -38,7 +38,7 @@ int main() {
 		}
 	  } else if (number[numberOfSymbol] - '0'==4) {
 		std::cout << "CD";
-	  } else if (number[numberOfSymbol] - '0' > 0) {
+	  } else {
 		for (int i = 0; number[numberOfSymbol] - '0' > 0; i++) {
 		  number[numberOfSymbol] -= 1;
 		  std::cout << 'C';
@@ -60,7 +60,7 @@ int main() {
 		}
 	  } else if (number[numberOfSymbol] - '0'==4) {
 		std::cout << "XL";
-	  } else if (number[numberOfSymbol] - '0' > 0) {
+	  } else {
 		for (int i = 0; number[numberOfSymbol] - '0' > 0; i++) {
 		  number[numberOfSymbol] -= 1;
 		  std::cout << 'X';
@@ -82,7 +82,7 @@ int main() {
 		}
 	  } else if (number[numberOfSymbol] - '0'==4) {
 		std::cout << "IV";
-	  } else if (number[numberOfSymbol] - '0' > 0) {
+	  } else {
 		for (int i = 0; number[numberOfSymbol] - '0' > 0; i++) {
 		  number[numberOfSymbol] -= 1;
 		  std::cout << 'I';
